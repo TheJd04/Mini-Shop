@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color tokens — ivory paper, near-black ink, deep indigo accent for CTAs.
+     Distinct on purpose from the other projects' palettes: no orange/coral
+     (that's Tally's), no teal (that's Foolscap's) — this one reads as a
+     quieter, more upscale boutique. */
+  --color-paper: #f7f4ec;
+  --color-surface: #ffffff;
+  --color-ink: #18171a;
+  --color-ink-soft: #6c685f;
+  --color-line: #e4ded0;
+  --color-clay: #2b3a67;
+  --color-clay-dark: #1c2747;
+  --color-sand: #ece4d2;
+  --color-sage: #4f7a5c;
+
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 2px;
+}
+
+/* Cart drawer slide-in */
+.drawer-enter {
+  transform: translateX(100%);
+}
+.drawer-enter-active {
+  transform: translateX(0);
+  transition: transform 0.25s ease-out;
+}
